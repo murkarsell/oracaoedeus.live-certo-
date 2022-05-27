@@ -71,8 +71,487 @@
 
             <!-- Headline -->
             <h3 class="my-4"><b>Descubra os 3 segredos de Israel para ter a verdadeira intimidade com Deus</b></h3>
+             <!-- Vídeo Youtube -->
+        <style>
+.cov,
+.covall,
+#loadingVideo,
+#cfs {
+    height: 100%;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0
+}
 
-           <script type="text/javascript" id="scr_628cd6fdd60fab000a508c2a">var s=document.createElement("script");s.src="https://scripts.converteai.net/6d9478a8-3b99-4bf2-bb7c-cb399319f674/players/628cd6fdd60fab000a508c2a/player.js",s.async=!0,document.head.appendChild(s);</script>
+#loadingVideo {
+   background:none;    
+}
+
+#cfs {
+    background-image: url(CLIQUE---PARA---COMEÇAR);
+    background-size: cover;
+    z-index: 25;
+    display: none;
+    cursor:pointer;
+}
+
+.cov {
+    background-image: url(CLIQUE---PARA---CONTINUAR);
+    background-size: cover;
+    z-index: 20!important;
+    display: none
+}
+
+.covall {
+    z-index: 10!important
+}
+
+.responsive-video {
+    position: relative;
+    padding-bottom: 56.25%;
+    overflow: hidden
+}
+
+.responsive-video iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0
+}
+
+.embed-container {
+    border: 2px solid #000;
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%
+}
+
+@media only screen and (max-width:480px)
+</style>
+
+<style>
+@media only screen and (max-width:480px) {
+#wh-wrapper-1 {
+	margin: 0;
+}
+.responsive-video {
+	padding-bottom: 150%;
+}
+#cfs {
+	background-image: url(VERTICAL---CELULAR);
+	background-size: cover;
+}
+.cov {
+	background-image: url(APERTE---PARA---CONTINUAR---CELULAR) !important;
+}
+
+
+</style>
+
+<section class="sec-vsl-1">
+  <div class="container">
+    <div class="white-wrapper" id="wh-wrapper-1">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="video-con">
+            <div class="responsive-video">
+              <div id="loadingVideo" style="display:none;"></div>
+              <div id="cfs" style="display:block;"></div>
+              <div class="cov"></div>
+              <div class="covall"></div>
+              <div id="player"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>    
+ var x = window.matchMedia("(max-width: 480px)");  
+ if (x.matches) {    
+ var youtubeId = "AQUI VAI O LINK";
+ var vplay = 0;
+ $("#cfs").addClass("cfsm");    
+ }
+
+  else 
+  { 
+  var youtubeId = "AQUI VAI O LINK";
+  var vplay = 1;
+  }  
+</script> 
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+  var muteStatus =1;
+
+var c = 0;
+
+var nw = true;
+
+var tag = document.createElement('script');
+
+tag.src = "//www.youtube.com/iframe_api";
+
+var firstScriptTag = document.getElementsByTagName('script')[0];
+
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+
+
+function onYouTubeIframeAPIReady() {
+
+    player = new YT.Player('player', {
+
+        videoId: youtubeId,
+
+        playerVars: {
+
+            autoplay: vplay,
+
+            cc_load_policy: 0,
+
+            controls: 0,
+
+            disablekb: 1,
+
+            fs: 0,
+
+            playsinline: 1,
+
+            modestbranding: 1,
+
+            iv_load_policy: 3,
+
+            rel: 0,
+
+            showinfo: 0,
+           
+
+            host: 'https://www.youtube.com'
+
+        },
+
+        events: {
+
+            onReady: onPlayerReady,
+
+            onStateChange: onPlayerStateChange,
+
+            onError: onPlayerError
+
+        }
+
+    });
+
+}
+
+
+
+function mutevid() {
+
+    player.mute();
+
+    player.setVolume(0);
+
+    muteStatus = 1;
+
+}
+
+
+
+function unmutevid() {
+
+    player.unMute();
+
+    player.setVolume(100);
+
+    muteStatus = 0;
+
+}
+
+
+
+function resetvid() {
+
+    $("#loadingVideo").hide();
+
+    $(".cov").show();
+
+    player.pauseVideo();
+
+    unmutevid();
+
+    player.seekTo(0);
+
+}
+
+
+
+function onPlayerReady() {
+
+    mutevid();   
+  
+
+    if (nw) {
+
+        player.seekTo(0);
+
+        nw = false;
+
+    }
+
+    player.playVideo();
+
+    if (na == 1) {
+
+        resetvid();
+
+    }
+
+    if (sc == 1) {
+
+        updateTimerDisplay();
+
+        updateProgressBar();
+
+        time_update_interval = setInterval(function() {
+
+            updateTimerDisplay();
+
+            updateProgressBar();
+
+        }, 1000);
+
+    }
+
+  CONSOLE.LOG('READY');
+
+}
+
+
+
+function onPlayerError(e) {
+
+    player.stopVideo();
+
+    $(".cov").css("background-image", "url('/sp-vsl-1/images/video-cover.png?v2");
+
+    $(".cov").show();
+
+    $("#loadingVideo").hide();
+
+    $("#cfs").hide();
+
+}
+
+
+
+function onPlayerStateChange(e) {
+
+  console.log('State Change');
+
+  console.log(e);
+
+  
+
+    if (e.data === -1) {
+
+        c++;
+
+        if (c > 1) {
+
+            setTimeout(function() {
+
+                if (player.getPlayerState() === -1) {
+
+                    resetvid();
+
+                }
+
+            }, 3500);
+
+        }
+
+    }
+
+    if (e.data === 1) {
+
+        $("#loadingVideo").hide();
+
+        $(".cov").hide();
+
+        $(".cov").css("background-image", "url('/sp-vsl-1/images/video-cover.png?v2");
+
+        if (muteStatus == 1) {
+
+            $(".unmute").show();
+
+        } else {
+
+            $(".unmute").hide();
+
+            unmutevid();
+
+        }
+
+    }
+
+    if (e.data === 2) {
+
+        $("#loadingVideo").hide();
+
+        $("#cfs").hide();
+
+        $(".cov").show();
+
+        if (muteStatus == 1) {
+
+            $(".unmute").show();
+
+        } else {
+
+            $(".unmute").hide();
+
+            unmutevid();
+
+        }
+
+    }
+
+    if (e.data === 3) {}
+
+    if (e.data === 0 || e.data === 5) {
+
+        $("#loadingVideo").hide();
+
+        $("#cfs").hide();
+
+         $(".cov").css("background-image", "url('/sp-vsl-1/images/video-cover.png?v2");
+
+        $(".cov").show();
+
+    }
+
+}
+
+$(".cov").click(function() {
+
+    player.playVideo();
+
+    $(".cov").hide();
+
+});
+
+$(".covall").click(function() {
+
+    player.pauseVideo();
+
+    $("#cfs").hide();
+
+    $(".cov").show();
+
+	
+
+	
+
+});
+
+$("#cfs").click(function() {
+
+    unmutevid();
+
+    $("#cfs").hide();
+
+});
+
+
+$("cfsm").click(function() {
+
+    player.playVideo();
+
+    $("#cfs").hide();
+
+});
+
+
+
+
+
+
+function updateTimerDisplay() {
+
+    $('#current-time').text(formatTime(player.getCurrentTime()));
+
+    $('#duration').text(formatTime(player.getDuration()));
+
+}
+
+
+
+function formatTime(time) {
+
+    time = Math.round(time);
+
+    var minutes = Math.floor(time / 60),
+
+        seconds = time - minutes * 60;
+
+    seconds = seconds < 10 ? '0' + seconds : seconds;
+
+    return minutes + ":" + seconds;
+
+}
+
+$('#progress-bar').on('mouseup touchend', function(e) {
+
+    var newTime = player.getDuration() * (e.target.value / 100);
+
+    player.seekTo(newTime);
+
+});
+
+
+
+function updateProgressBar() {
+
+    $('#progress-bar').val((player.getCurrentTime() / player.getDuration()) * 100);
+
+}
+
+
+
+function preload(arrayOfImages) {
+
+    $(arrayOfImages).each(function() {
+
+        $('<img />').attr('src', this).appendTo('body').css('display', 'none');
+
+    });
+
+}
+
+
+  </script>
 
             <!-- Botão 1 -->
             <div id="cta1" class="mt-4 d-none">
